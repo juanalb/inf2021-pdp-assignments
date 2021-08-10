@@ -33,7 +33,7 @@ We want to count the number of ratings given for each movie from the ml-100k dat
 ![image](https://user-images.githubusercontent.com/26707584/128789927-5cb0a1ce-f8e5-4aca-952a-e73470c696b6.png)
 ![image](https://user-images.githubusercontent.com/26707584/128790291-1d082bf9-7c01-4e23-832c-db2b947b29e8.png)
 
-### Extra (after sorting asc) 
+### Extra (after sorting desc) 
 ![image](https://user-images.githubusercontent.com/26707584/128879166-4b7e7739-0d4d-419d-8d23-c31eb2b245b6.png)
 
 
