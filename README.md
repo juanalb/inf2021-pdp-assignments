@@ -35,35 +35,35 @@ We want to count the number of ratings given for each movie from the ml-100k dat
 
 ### Extra (after sorting desc) 
 ![image](https://user-images.githubusercontent.com/26707584/128879166-4b7e7739-0d4d-419d-8d23-c31eb2b245b6.png)
----
+
 ---
 ---
 # Assignment 2
 
 ## Requirements
 
--   Make a alphabetic list from all locations from the orders.csv.​
+-   Make a alphabetic list from all locations from the orders.csv.
     
--   Group by “location” with target “Holland” ​
+-   Group by “location” with target “Holland” 
     
--   Count how many times Holland was the target from that location​
+-   Count how many times Holland was the target from that location
     
--   Code is executed from Pig View​
+-   Code is executed from Pig View
     
 ## Expected output
-Adriatic Sea, Holland, 6​
-Albania, Holland, 5​
+Adriatic Sea, Holland, 6
+Albania, Holland, 5
 ...
 
 ## Solution 
 
-1.  Import orders.csv data file
-2.  Create a basic script that will LOAD and DUMP the whole dataset. Execute with Tez as well as MapReduce to see which one has a faster execution time, Tez is almost 3x as fast. Still takes 2 minutes to execute, therefore I created a snippet of the dataset (1.3m rows to 200k rows). 
-3.  FILTER our dataset on "Holland"
-4.  GROUP by location and target -> returns a bag with tuples containing each 
+1. Import orders.csv data file
+2. Create a basic script that will LOAD and DUMP the whole dataset. Execute with Tez as well as MapReduce to see which one has a faster execution time, Tez is almost 3x as fast. Still takes 2 minutes to execute, therefore I created a snippet of the dataset (1.3m rows to 200k rows). 
+3. FILTER our dataset on "Holland"
+4. GROUP by location and target -> returns a bag with tuples containing each 
 5. We now need to FLATTEN our data, and COUNT 1 for each tuple we find inside our group.
 6. At last we want to order it alphabetically, using the ORDER command. 
-7.  DUMP our results. 
+7. DUMP our results. 
 
 ### Extra
 
