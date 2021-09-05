@@ -40,17 +40,13 @@ We want to count the number of ratings given for each movie from the ml-100k dat
 ---
 # Assignment 2
 
-## Requirements
-
 -   Make a alphabetic list from all locations from the orders.csv.
-    
 -   Group by “location” with target “Holland” 
-    
--   Count how many times Holland was the target from that location
-    
+-   Count how many times Holland was the target from that location  
 -   Code is executed from Pig View
     
 ## Expected output
+
 Adriatic Sea, Holland, 6
 Albania, Holland, 5
 ...
@@ -65,10 +61,7 @@ Albania, Holland, 5
 6. At last we want to order it alphabetically, using the ORDER command. 
 7. DUMP our results. 
 
-### Extra
-
 ## Output
-
 
 `("Adriatic Sea","Holland",1)
 ("Aegean Sea","Holland",5)
@@ -85,6 +78,18 @@ Albania, Holland, 5
 ("Bulgaria","Holland",2)
 ("Burgundy","Holland",1153)
 ...`
+
+---
+---
+
+# Assignment 3
+
+Using the titanic.csv dataset, complete the following assignments.
+
+![image](https://user-images.githubusercontent.com/26707584/132125521-23b67cd5-0ce5-41cc-adbd-01ebf70f3c94.png)
+
+## Solution 
+
 
 
 
