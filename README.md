@@ -88,11 +88,16 @@ Using the titanic.csv dataset, complete the following assignments.
 
 ![image](https://user-images.githubusercontent.com/26707584/132125521-23b67cd5-0ce5-41cc-adbd-01ebf70f3c94.png)
 
----
-**NOTE**
-
-The assignment was unbiased on which environment we should use, as long as we're using Apache Spark. Therefor I've chosen to use Zeppelin Notebook with the build in Apache Spark interperter. Since we already need the Hortonworks Sandbox env for this course, this was the path that holds the least amount of configuration to finish the assignment. If code seems unfamiliar, it may be due to the interperter, therefore I recommend to read up on the documentation of it: https://zeppelin.apache.org/docs/latest/interpreter/spark.html
----
+> **NOTE**
+> 
+> The assignment was unbiased on which environment we should use, as
+> long as we're using Apache Spark. Therefore I've chosen to use
+> Zeppelin Notebook with the built in Apache Spark interperter. Since we
+> already need the Hortonworks Sandbox env for this course, this was the
+> path that holds the least amount of configuration to finish the
+> assignment. If code seems unfamiliar, it may be due to the
+> interperter, in that case I recommend to read up on the documentation
+> of it: https://zeppelin.apache.org/docs/latest/interpreter/spark.html
 
 ## Solution 
 
@@ -107,9 +112,8 @@ The steps to produce the answer are as followed:
 5. Merge the two datasets for preparation on calculating the probabillities
 6. Calculate the probabillities
 
-![image](https://user-images.githubusercontent.com/26707584/132832748-dc351cc9-b59e-4752-bed5-9fa47f1dde96.png)
+![image](https://user-images.githubusercontent.com/26707584/132835216-0a0988e4-a062-4900-927c-b8c5611a7b17.png)
 
 Looking at the data we can conclude that women had a much higher survival rate than men, especially if their passenger class was higher. 
 
-
-
+### Question B)
