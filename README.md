@@ -97,7 +97,7 @@ Using the titanic.csv dataset, complete the following assignments.
 > path that holds the least amount of configuration to finish the
 > assignment. If code seems unfamiliar, it may be due to the
 > interperter, in that case I recommend to read up on the documentation
-> of it: https://zeppelin.apache.org/docs/latest/interpreter/spark.html
+> of the interperter: https://zeppelin.apache.org/docs/latest/interpreter/spark.html
 
 ## Solution 
 
@@ -117,3 +117,19 @@ The steps to produce the answer are as followed:
 Looking at the data we can conclude that women had a much higher survival rate than men, especially if their passenger class was higher. 
 
 ### Question B)
+
+### Question C)
+After reading up on how we could calculate the expected fare, the formula we should is `E(X) = ΣX * P(X)`. This is because we have multiple events, since not everybody paid the same amount of fare in a given class.
+
+The steps to produce the answer are as followed:
+1. Convert the titanic.csv file into a pyspark dataframe 
+2. Change the schema to have correct types
+3. Calculate the probabillity for each fare
+4. Multiply the fare with P(fare)
+5. Sum these values
+
+TIL that the Expected Value is just the same as the mean in value, but the EV is a prediction for a specific future occurrence rather than a generalization across multiple occurrences.
+
+![image](https://user-images.githubusercontent.com/26707584/132990791-42f1bcfc-d55e-4efd-91fc-77a08f08ef25.png)
+
+
