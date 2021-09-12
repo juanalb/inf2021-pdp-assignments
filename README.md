@@ -77,7 +77,7 @@ Albania, Holland, 5
 ("Budapest","Holland",1)
 ("Bulgaria","Holland",2)
 ("Burgundy","Holland",1153)
-...`
+(...)`
 
 ---
 ---
@@ -116,7 +116,7 @@ The steps to produce the answer are as followed:
 
 Looking at the data we can conclude that women had a much higher survival rate than men, especially if their passenger class was higher. 
 
-### Question B)
+### Question B) ...
 
 ### Question C)
 After reading up on how we could calculate the expected fare, the formula we should is `E(X) = ΣX * P(X)`. This is because we have multiple events, since not everybody paid the same amount of fare in a given class.
