@@ -130,6 +130,6 @@ The steps to produce the answer are as followed:
 
 TIL that the Expected Value is just the same as the mean in value, but the EV is a prediction for a specific future occurrence rather than a generalization across multiple occurrences.
 
-![image](https://user-images.githubusercontent.com/26707584/132990791-42f1bcfc-d55e-4efd-91fc-77a08f08ef25.png)
+![image](https://user-images.githubusercontent.com/26707584/132990838-2da2d4e1-b93f-4876-9002-44c6c195a7a5.png)
 
 
