@@ -1,0 +1,100 @@
+%pyspark
+from pyspark.sql.functions import expr
+from pyspark.sql.types import BooleanType
+from pyspark.sql.functions import lit
+from pyspark.sql.functions import col
+
+# Load in data
+rdd = sc.textFile('./titanic.csv')
+
+# Substract header
+header = rdd.first()
+header = header.split(",")
+
+# Split on csv delimiter
+rdd = rdd.map(lambda line: line.split(","))
+
+# Convert to dataframe
+df = rdd.filter(lambda row : row != header).toDF(header)
+
+# Change schema to hold correct types
+df = df.withColumn("Survived", df["Survived"].cast("boolean"))
+df = df.withColumn("Age", df["Age"].cast("int"))
+df = df.withColumn("Siblings/Spouses Aboard", df["Siblings/Spouses Aboard"].cast("int"))
+df = df.withColumn("Parents/Children Aboard", df["Parents/Children Aboard"].cast("int"))
+df = df.withColumn("Fare", df["Fare"].cast("int"))
+
+
+# ==================================================================================
+# ===================================PCLASS1========================================
+
+# Create df for Pclass 1 with the values we need to do further calculations
+df_pclass_1 = df[(df['Pclass'] == 1)].select("Pclass", "Fare")
+
+# Create df for Pclass 1 with the values we need to do further calculations
+count_pclass_1 = df_pclass_1.count()
+
+# Calculate the probabillity for each fare
+df_pclass_1 = df_pclass_1.groupby("Fare").count()
+df_pclass_1 = df_pclass_1.withColumn('Count Pclass1', lit(count_pclass_1))
+df_pclass_1 = df_pclass_1.withColumn('Probabillity', (col("count") / col("Count Pclass1")))
+
+# Multiply the fare with P(fare)
+df_pclass_1 = df_pclass_1.withColumn('Fare * Probability(Fare)', (col("Fare") * col("Probabillity")))
+
+# Sum the values
+ev_1 = df_pclass_1.agg({'Fare * Probability(Fare)' : 'sum'})
+ev_1 = ev_1.withColumnRenamed("sum(Fare * Probability(Fare))" , "Expected Value Pclass 1")
+
+df_pclass_1.show(5)
+ev_1.show()
+
+# NOTE: I am aware of the fact that this code is not DRY, but since I won't come back to this code and there are only 3 repetitions it is the most efficient way IMO.
+
+# ==================================================================================
+# ===================================PCLASS2========================================
+
+# Create df for Pclass 2 with the values we need to do further calculations
+df_pclass_2 = df[(df['Pclass'] == 2)].select("Pclass", "Fare")
+
+# Create df for Pclass 2 with the values we need to do further calculations
+count_pclass_2 = df_pclass_2.count()
+
+# Calculate the probabillity for each fare
+df_pclass_2 = df_pclass_2.groupby("Fare").count()
+df_pclass_2 = df_pclass_2.withColumn('Count Pclass2', lit(count_pclass_2))
+df_pclass_2 = df_pclass_2.withColumn('Probabillity', (col("count") / col("Count Pclass2")))
+
+# Multiply the fare with P(fare)
+df_pclass_2 = df_pclass_2.withColumn('Fare * Probability(Fare)', (col("Fare") * col("Probabillity")))
+
+# Sum the values
+ev_2 = df_pclass_2.agg({'Fare * Probability(Fare)' : 'sum'})
+ev_2 = ev_2.withColumnRenamed("sum(Fare * Probability(Fare))" , "Expected Value Pclass 2")
+
+df_pclass_2.show(5)
+ev_2.show()
+
+# ==================================================================================
+# ===================================PCLASS3========================================
+
+# Create df for Pclass 3 with the values we need to do further calculations
+df_pclass_3 = df[(df['Pclass'] == 3)].select("Pclass", "Fare")
+
+# Create df for Pclass 3 with the values we need to do further calculations
+count_pclass_3 = df_pclass_3.count()
+
+# Calculate the probabillity for each fare
+df_pclass_3 = df_pclass_3.groupby("Fare").count()
+df_pclass_3 = df_pclass_3.withColumn('Count Pclass3', lit(count_pclass_3))
+df_pclass_3 = df_pclass_3.withColumn('Probabillity', (col("count") / col("Count Pclass3")))
+
+# Multiply the fare with P(fare)
+df_pclass_3 = df_pclass_3.withColumn('Fare * Probability(Fare)', (col("Fare") * col("Probabillity")))
+
+# Sum the values
+ev_3 = df_pclass_3.agg({'Fare * Probability(Fare)' : 'sum'})
+ev_3 = ev_3.withColumnRenamed("sum(Fare * Probability(Fare))" , "Expected Value Pclass 3")
+
+df_pclass_3.show(5)
+ev_3.show()
